@@ -15,4 +15,4 @@ About static,
 > - New client files are stored in `static` folder (static and PHP are **dissociated**)
 
 
-To manage all services there is a Nginx reverse proxy as front-end sever.
+To manage all services there is a Nginx reverse proxy as front-end server.
