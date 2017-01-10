@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  entrypoint:
+    image: appdemo/fontend-nginx:0.1
+    build: ../../entrypoint
+    command: ["nginx", "-g", "daemon off;"]
+    depends_on:
+      - static
+      - front
+      - front-lgcy
+
+  memcached:
+    image: memcached
+
+  static:
+    image: appdemo/static:0.1
+    command: ["nginx", "-g", "daemon off;"]
+    build: ../../static
+
+  front:
+    image: appdemo/front:0.1
+    build: ../../front
+    command: php-fpm
+    depends_on:
+      - memcached
+
+  front-lgcy:
+    image: appdemo/front-lgcy:0.1
+    build: ../../front_lgcy
+    command: ["nginx", "-g", "daemon off;"]
+    depends_on:
+      - memcached

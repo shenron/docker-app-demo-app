@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  entrypoint:
+    ports:
+      - "8888:80"
+
+  static:
+    volumes:
+      - ${APP_PATH}/static/src/:/var/www
+    ports:
+      - "8889:80"
+
+  front:
+    environment:
+      - ENV=DEV
+    volumes:
+      - ${APP_PATH}/front/src/:/var/www
+    ports:
+      #for debug in IDE
+      - "2222:22"
+
+  front-lgcy:
+    environment:
+      - ENV=DEV
+    volumes:
+      - ${APP_PATH}/front_lgcy/src/:/var/www
+    ports:
+      #for debug in IDE
+      - "2223:22"

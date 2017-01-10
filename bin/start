@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Run this script from the root project path
+export APP_PATH=$(pwd)
+
+docker-compose \
+    -f ./bin/compose/docker-compose.yml up\
+    --build

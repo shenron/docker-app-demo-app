@@ -1,0 +1,5 @@
+#!/bin/bash
+echo 'Clean Docker'
+docker rm $(docker ps -a -q)
+docker images | grep "<none>" | awk '{ print "docker rmi " $3 }' | bash
+docker images
