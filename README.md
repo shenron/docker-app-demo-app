@@ -12,7 +12,6 @@ Because the navigation between these applications is totally transparent for the
 
 About static,
 > - Legacy client files are stored in `front_lgcy` folder, so the Nginx for this service deserve static **and** PHP
-
 > - New client files are stored in `static` folder (static and PHP are **dissociated**)
 
 
